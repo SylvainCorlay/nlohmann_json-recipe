@@ -9,8 +9,11 @@ environment:
     secure: GM8zcUvE63jeSWWeNaQgmTTz0/t+Ef90QsRpbR7QhNQc3vt9kMC4DKAGHn4kJ3TD
 
   matrix:
+    - TARGET_ARCH: x86
+      CONDA_PY: 36
+      CONDA_INSTALL_LOCN: C:\\Miniconda36
+      
     - TARGET_ARCH: x64
-      LLVM_VARIANT: default
       CONDA_PY: 36
       CONDA_INSTALL_LOCN: C:\\Miniconda36-x64
 
@@ -42,7 +45,6 @@ install:
     - cmd: conda.exe config --add channels defaults
     - cmd: conda.exe config --add channels conda-forge
     - cmd: conda.exe config --add channels QuantStack
-    - cmd: conda.exe config --add channels gouarin
 
     # Configure the VM.
     - cmd: conda.exe install -n root --quiet --yes conda-forge-build-setup
