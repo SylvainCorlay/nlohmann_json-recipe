@@ -1,0 +1,42 @@
+From 525062b4ae063d1b57e538e654360f8fa47195b1 Mon Sep 17 00:00:00 2001
+From: Sylvain Corlay <sylvain.corlay@gmail.com>
+Date: Thu, 25 Oct 2018 14:04:38 +0200
+Subject: [PATCH] do-not-test
+
+---
+ CMakeLists.txt | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b345c77a..cc23bc3b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,7 +15,6 @@ include(ExternalProject)
+ ##
+ ## OPTIONS
+ ##
+-option(JSON_BuildTests "Build the unit tests when BUILD_TESTING is enabled." ON)
+ option(JSON_MultipleHeaders "Use non-amalgamated version of the library." OFF)
+ 
+ ##
+@@ -67,17 +66,6 @@ if (MSVC)
+     )
+ endif()
+ 
+-##
+-## TESTS
+-## create and configure the unit test target
+-##
+-include(CTest) #adds option BUILD_TESTING (default ON)
+-
+-if(BUILD_TESTING AND JSON_BuildTests)
+-    enable_testing()
+-    add_subdirectory(test)
+-endif()
+-
+ ##
+ ## INSTALL
+ ## install header files, generate and install cmake config files for find_package()
+-- 
+2.18.0
+
